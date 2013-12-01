@@ -1,0 +1,28 @@
+evaluationDependsOn(':app')
+
+apply plugin: 'java'
+
+dependencies {
+    compile project(':app')
+
+    testCompile 'junit:junit:4.+'
+    testCompile 'org.mockito:mockito-all:1.8.+'
+    testCompile 'org.robolectric:robolectric:2.2'
+
+    testCompile project(':app').android.applicationVariants.toList().first().javaCompile.classpath
+    testCompile project(':app').android.applicationVariants.toList().first().javaCompile.outputs.files
+    testCompile files(project(':app').plugins.findPlugin("android").runtimeJarList)
+}
+
+sourceSets {
+    test {
+        java.srcDirs = ['src/unit-tests/java']
+    }
+}
+
+tasks.withType(Test) {
+    scanForTestClasses = false
+    include "**/*Should.class"
+    include "**/*Test.class"
+    include "**/*Tests.class"
+}

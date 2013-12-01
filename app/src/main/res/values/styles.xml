@@ -1,0 +1,5 @@
+<resources>
+
+  <style name="EspressoDemoTheme" parent="android:Theme.Holo.Light.DarkActionBar" />
+
+</resources>

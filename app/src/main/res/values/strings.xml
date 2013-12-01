@@ -1,0 +1,10 @@
+<resources>
+  <string name="app_name">UI Testing – Demo app</string>
+
+  <string name="button_with_id">I haz id</string>
+  <string name="simple_button">Simple button</string>
+  <string name="text_cd">This one has content description</string>
+  <string name="hello_visitor">Hello visitor %1$d</string>
+
+  <string name="awesome_visitor">Visitor %1$d is awesome!</string>
+</resources>
