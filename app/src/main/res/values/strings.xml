@@ -7,4 +7,7 @@
   <string name="hello_visitor">Hello visitor %1$d</string>
 
   <string name="awesome_visitor">Visitor %1$d is awesome!</string>
+  <string name="menu_toast_me">Toast me!</string>
+  <string name="menu_exit">Exit</string>
+  <string name="toasted_message">You\'ve been toasted</string>
 </resources>

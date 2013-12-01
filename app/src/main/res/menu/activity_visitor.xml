@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item
+    android:id="@+id/toast"
+    android:icon="@android:drawable/ic_dialog_alert"
+    android:title="@string/menu_toast_me"
+    android:showAsAction="always" />
+  <item
+    android:id="@+id/exit"
+    android:icon="@android:drawable/ic_delete"
+    android:title="@string/menu_exit"
+    android:showAsAction="never" />
+</menu>
