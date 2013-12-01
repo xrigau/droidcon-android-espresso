@@ -22,4 +22,8 @@ To start you should:
   
 Next steps
 ---
- - Checkout the first branch: `git checkout 01_setup_and_basic_tests`
+
+ - Fulfill the `isEmpty()` method in `EspressoTestsMatchers` to verify the ImageButton has no text.
+ - Write some more complex assertions to verify that a specific View uses a specific Drawable (if it's an ImageView check image, if it's a TextView check compound drawables, if any other View just check background). You can use class `DrawableMatcher` as base to start with.
+ - Also you can assert that the ActionBar menu is displayed in some screens and does not exist in others.
+ - Checkout the next branch: `git checkout 03_on_view`
