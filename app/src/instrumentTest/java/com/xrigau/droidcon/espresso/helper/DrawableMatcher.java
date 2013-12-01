@@ -3,6 +3,8 @@ package com.xrigau.droidcon.espresso.helper;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
@@ -28,9 +30,13 @@ public class DrawableMatcher extends TypeSafeMatcher<View> {
             return false;
         }
 
-        // TODO: Finish! Pro tip: 2 Drawable objects are different, but there's something they share, something is constant...
-
-        return false;
+        if (target instanceof ImageView) {
+            return hasImage((ImageView) target) || hasBackground(target);
+        }
+        if (target instanceof TextView) {
+            return hasCompoundDrawable((TextView) target) || hasBackground(target);
+        }
+        return hasBackground(target);
     }
 
     private void loadDrawableFromResources(Resources resources) {
@@ -44,6 +50,33 @@ public class DrawableMatcher extends TypeSafeMatcher<View> {
 
     private boolean invalidExpectedDrawable() {
         return expectedDrawable == null;
+    }
+
+    private boolean hasImage(ImageView target) {
+        return isSameDrawable(target.getDrawable());
+    }
+
+    private boolean hasCompoundDrawable(TextView target) {
+        if (target.getCompoundDrawables() == null) {
+            return false;
+        }
+        for (Drawable drawable : target.getCompoundDrawables()) {
+            if (isSameDrawable(drawable)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean hasBackground(View target) {
+        return isSameDrawable(target.getBackground());
+    }
+
+    private boolean isSameDrawable(Drawable drawable) {
+        if (drawable == null) {
+            return false;
+        }
+        return expectedDrawable.getConstantState().equals(drawable.getConstantState());
     }
 
     @Override
