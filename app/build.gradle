@@ -16,5 +16,11 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 19
+
+        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
     }
+}
+
+dependencies {
+    instrumentTestCompile "com.google.android:android-espresso-bundled:1.0.0-SNAPSHOT"
 }
