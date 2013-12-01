@@ -17,3 +17,8 @@ To start you should:
 
  - Clone this repo in your machine
  - Switch branches after each exercise (the master branch, contains the final result after the session, but you should go through the middle steps and try to solve them, branches are numbered and each branch starts with the necessary things to go on, so it's easy!)
+ - You can find the instructions to continue working in the 'Next steps' section below.
+  
+Next steps
+---
+ - Checkout the first branch: `git checkout 01_setup_and_basic_tests`
