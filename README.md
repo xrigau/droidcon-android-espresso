@@ -10,6 +10,7 @@ In order to build the app you need:
  - The Android SDK with API 19 and build tools v19.0.0 – [Click in 'Use an existing IDE' to download](https://developer.android.com/sdk/index.html#ExistingIDE)
  - Gradle 1.8 (or you can use the Gradle wrapper instead) – [direct download from gradle.org](http://services.gradle.org/distributions/gradle-1.8-bin.zip)
  - Android Studio 0.3.6 (not required but recommended) – [download from developer.android.com](http://developer.android.com/sdk/installing/studio.html)
+ - Espresso source code (Highly recommended) – [direct download from Google Code](https://android-test-kit.googlecode.com/archive/b49a13f06e5e832fa456900345ba47cb739637f7.zip)
  
 Get started
 ---
