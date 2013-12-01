@@ -21,4 +21,6 @@ To start you should:
   
 Next steps
 ---
- - Checkout the first branch: `git checkout 01_basic_structure`
+ - Set up instrumentation test configuration to use Espresso
+ - Write some basic tests for MainActivity and VisitorActivity to verify that some buttons are displayed using different Matchers
+ - Checkout the next branch: `git checkout 02_advanced_matchers`
