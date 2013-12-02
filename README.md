@@ -6,7 +6,7 @@ Requirements
 ---
 In order to build the app you need:
 
- - Of course, git [official downloads](http://git-scm.com/downloads)
+ - Of course, git – [official downloads](http://git-scm.com/downloads)
  - The Android SDK with API 19 and build tools v19.0.0 – [Click in 'Use an existing IDE' to download](https://developer.android.com/sdk/index.html#ExistingIDE)
  - Gradle 1.8 (or you can use the Gradle wrapper instead) – [direct download from gradle.org](http://services.gradle.org/distributions/gradle-1.8-bin.zip)
  - Android Studio 0.3.6 (not required but recommended) – [download from developer.android.com](http://developer.android.com/sdk/installing/studio.html)
@@ -24,4 +24,3 @@ Next steps
 ---
 
  - Checkout the first branch: `git checkout 01_setup_and_basic_tests`
-
