@@ -23,4 +23,5 @@ To start you should:
 Next steps
 ---
 
- - Checkout the first branch: `git checkout 01_setup_and_basic_tests`
+ - Hurray! You've finished with this! This branch is intended to use 'extra' stuff.
+ - Check out the app's `build.gradle` and see how cool it is to use your own device provider to only run instrument tests on some devices (specially good for CIs)
