@@ -22,4 +22,5 @@ To start you should:
   
 Next steps
 ---
+
  - Checkout the first branch: `git checkout 01_setup_and_basic_tests`

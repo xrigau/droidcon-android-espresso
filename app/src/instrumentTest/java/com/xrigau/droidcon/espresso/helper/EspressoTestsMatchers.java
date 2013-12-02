@@ -1,6 +1,9 @@
 package com.xrigau.droidcon.espresso.helper;
 
 import android.view.View;
+import android.view.ViewGroup;
+
+import com.google.android.apps.common.testing.ui.espresso.matcher.BoundedMatcher;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -40,6 +43,17 @@ public class EspressoTestsMatchers {
     }
 
     public static Matcher<View> withChildCount(final Matcher<Integer> numberMatcher) {
-        return null;
+        return new BoundedMatcher<View, ViewGroup>(ViewGroup.class) {
+            @Override
+            protected boolean matchesSafely(ViewGroup viewGroup) {
+                return numberMatcher.matches(viewGroup.getChildCount());
+            }
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("number of child views ");
+                numberMatcher.describeTo(description);
+            }
+        };
     }
 }

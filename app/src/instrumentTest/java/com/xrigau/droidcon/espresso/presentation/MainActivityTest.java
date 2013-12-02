@@ -65,4 +65,14 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
         onView(withDrawable(android.R.drawable.ic_menu_gallery)).check(matches(allOf(withDrawable(android.R.drawable.alert_dark_frame), isDisplayed())));
     }
+
+    public void testNewsButtonOpensPostListActivity() {
+        onView(withId(R.id.button_with_id)).perform(click());
+
+        onView(withText(R.string.post_list_title)).check(matches(isDisplayed()));
+
+        pressBack();
+
+        onView(withId(R.id.button_with_id)).check(matches(isDisplayed()));
+    }
 }

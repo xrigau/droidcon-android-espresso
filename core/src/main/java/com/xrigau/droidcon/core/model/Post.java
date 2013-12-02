@@ -62,6 +62,29 @@ public class Post {
         return Type.valueOf(type);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Post post = (Post) o;
+
+        if (!id.equals(post.id)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
+
     public static class Builder {
 
         public static enum Type {
@@ -134,6 +157,9 @@ public class Post {
         }
 
         public Post build() {
+            if (id == null) {
+                id = "";
+            }
             return new Post(id, title, url, domain, points, user, time_ago, commentCount, type.type);
         }
     }
