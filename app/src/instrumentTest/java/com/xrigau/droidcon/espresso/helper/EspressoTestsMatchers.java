@@ -6,12 +6,8 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import static com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers.isDisplayed;
-import static com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers.withClassName;
-import static com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers.withContentDescription;
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.anyOf;
-import static org.hamcrest.Matchers.endsWith;
+import static com.google.android.apps.common.testing.ui.espresso.matcher.ViewMatchers.*;
+import static org.hamcrest.Matchers.*;
 
 public class EspressoTestsMatchers {
 
@@ -43,4 +39,7 @@ public class EspressoTestsMatchers {
         return new DrawableMatcher(resourceId);
     }
 
+    public static Matcher<View> withChildCount(final Matcher<Integer> numberMatcher) {
+        return null;
+    }
 }
