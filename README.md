@@ -22,4 +22,7 @@ To start you should:
   
 Next steps
 ---
- - Checkout the first branch: `git checkout 01_setup_and_basic_tests`
+ 
+ - Write tests for PostListActivity (verify that data is recieved and displayed). Use `onData` for this
+ - Verify that it works properly on the Internet and then leave it with the mock response to speed tests up
+ - Checkout the next branch: `git checkout 04_extras`
