@@ -1,7 +1,7 @@
 <resources>
   <string name="app_name">UI Testing – Demo app</string>
 
-  <string name="button_with_id">I haz id</string>
+  <string name="button_with_id">Click here to read the news!</string>
   <string name="simple_button">Simple button</string>
   <string name="text_cd">This one has content description</string>
   <string name="hello_visitor">Hello visitor %1$d</string>
@@ -10,4 +10,9 @@
   <string name="menu_toast_me">Toast me!</string>
   <string name="menu_exit">Exit</string>
   <string name="toasted_message">You\'ve been toasted</string>
+
+  <string name="post_list_title">Latest news</string>
+  <string name="loading">Loading…</string>
+  <string name="one_comment">%1$d comment</string>
+  <string name="many_comments">%1$d comments</string>
 </resources>

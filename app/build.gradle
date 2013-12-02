@@ -9,6 +9,10 @@ buildscript {
 
 apply plugin: 'android'
 
+dependencies {
+    compile project(":core")
+}
+
 android {
     compileSdkVersion 19
     buildToolsVersion "19.0.0"
@@ -18,9 +22,40 @@ android {
         targetSdkVersion 19
 
         testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
-    }
-}
 
-dependencies {
-    instrumentTestCompile "com.google.android:android-espresso-bundled:1.0.0-SNAPSHOT"
+        buildConfig """
+          public static final retrofit.client.Client DEFAULT_HTTP_CLIENT = new retrofit.client.UrlConnectionClient();
+          public static final retrofit.client.Client MOCK_HTTP_CLIENT = new com.xrigau.droidcon.core.debug.MockClient();
+        """
+    }
+
+    testBuildType "mockServer"
+
+    buildTypes {
+        release {
+            debuggable false
+            jniDebugBuild false
+            signingConfig signingConfigs.debug // TODO create a release config
+
+            buildConfig "public static final retrofit.client.Client HTTP_CLIENT = DEFAULT_HTTP_CLIENT;\n"
+        }
+        debug {
+            debuggable true
+            jniDebugBuild true
+            signingConfig signingConfigs.debug
+
+            buildConfig "public static final retrofit.client.Client HTTP_CLIENT = DEFAULT_HTTP_CLIENT;\n"
+        }
+        mockServer {
+            dependencies {
+                compile "com.google.android:android-espresso-bundled:1.0.0-SNAPSHOT"
+            }
+
+            debuggable true
+            jniDebugBuild true
+            signingConfig signingConfigs.debug
+
+            buildConfig "public static final retrofit.client.Client HTTP_CLIENT = MOCK_HTTP_CLIENT;\n"
+        }
+    }
 }
