@@ -29,6 +29,7 @@ android {
         """
     }
 
+    deviceProvider new GenymotionDeviceProvider(project.plugins.findPlugin('android').getSdkParser())
     testBuildType "mockServer"
 
     buildTypes {
@@ -57,5 +58,28 @@ android {
 
             buildConfig "public static final retrofit.client.Client HTTP_CLIENT = MOCK_HTTP_CLIENT;\n"
         }
+    }
+}
+
+class GenymotionDeviceProvider extends com.android.builder.testing.ConnectedDeviceProvider {
+    GenymotionDeviceProvider(com.android.builder.SdkParser sdkParser) {
+        super(sdkParser)
+    }
+
+    public String getName() {
+        return "genymotion" // Run with 'gradle genymotionInstrumentTest'
+    }
+
+    public List<? extends com.android.builder.testing.api.DeviceConnector> getDevices() {
+        List localDevices = super.getDevices()
+        def matchingDevices = localDevices.grep {
+            it.getApiLevel() > 16 &&
+                    it.iDevice.getProperty("ro.product.manufacturer") == 'Genymotion'
+        }
+
+        if (matchingDevices.size() == 0) {
+            throw new IllegalArgumentException("Couldn't find any connected device that matches [${getName()}] provider.")
+        }
+        matchingDevices
     }
 }
