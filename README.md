@@ -25,3 +25,4 @@ Next steps
 
  - Hurray! You've finished with this! This branch is intended to use 'extra' stuff.
  - Check out the app's `build.gradle` and see how cool it is to use your own device provider to only run instrument tests on some devices (specially good for CIs)
+ - Take a look at `WorldDestructionCountdown.java`, `IdlingResourceActivity.java` and `IdlingResourceActivityTest.java` to see how to implement an IdlingResource in order to make Espresso wait for a specific source that you use before executing tests. The example makes use of plain Threads, which is made intentionally just for demo purposes (since Espresso doesn't monitor Threads), that means, don't use plain Threads in Android.
