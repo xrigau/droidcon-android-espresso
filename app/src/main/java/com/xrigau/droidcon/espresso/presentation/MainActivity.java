@@ -40,6 +40,14 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.idling_resource).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, IdlingResourceActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

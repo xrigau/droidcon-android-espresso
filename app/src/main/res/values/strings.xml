@@ -15,4 +15,9 @@
   <string name="loading">Loading…</string>
   <string name="one_comment">%1$d comment</string>
   <string name="many_comments">%1$d comments</string>
+  <string name="activity_idling_resource_title">Idling resource example</string>
+  <string name="see_idling_resource">See idling resource example</string>
+  <string name="countdown_started">World destruction countdown started</string>
+  <string name="countdown_update">World crashing in %1$d</string>
+  <string name="countdown_finished">Boom! World\'s been destroyed</string>
 </resources>
