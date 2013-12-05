@@ -31,6 +31,10 @@
     <activity
       android:name=".presentation.PostListActivity"
       android:label="@string/post_list_title" />
+
+    <activity
+      android:name=".presentation.IdlingResourceActivity"
+      android:label="@string/activity_idling_resource_title" />
   </application>
 
 </manifest>
