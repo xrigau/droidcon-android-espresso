@@ -33,23 +33,24 @@ android {
     testBuildType "mockServer"
 
     buildTypes {
-        buildConfig "public static final retrofit.client.Client HTTP_CLIENT = DEFAULT_HTTP_CLIENT;\n"
-    }
-    debug {
-        buildConfig "public static final retrofit.client.Client HTTP_CLIENT = DEFAULT_HTTP_CLIENT;\n"
-    }
-    mockServer {
+        release {
+            buildConfig "public static final retrofit.client.Client HTTP_CLIENT = DEFAULT_HTTP_CLIENT;\n"
+        }
+        debug {
+            buildConfig "public static final retrofit.client.Client HTTP_CLIENT = DEFAULT_HTTP_CLIENT;\n"
+        }
         mockServer {
-            signingConfig signingConfigs.debug
-            buildConfig "public static final retrofit.client.Client HTTP_CLIENT = MOCK_HTTP_CLIENT;\n"
+            mockServer {
+                signingConfig signingConfigs.debug
+                buildConfig "public static final retrofit.client.Client HTTP_CLIENT = MOCK_HTTP_CLIENT;\n"
 //            buildConfig "public static final retrofit.client.Client HTTP_CLIENT = DEFAULT_HTTP_CLIENT;\n"
 
-            dependencies {
-                compile "com.google.android:android-espresso-bundled:1.0.0-SNAPSHOT"
+                dependencies {
+                    compile "com.google.android:android-espresso-bundled:1.0.0-SNAPSHOT"
+                }
             }
         }
     }
-}
 }
 
 class GenymotionDeviceProvider extends com.android.builder.testing.ConnectedDeviceProvider {
