@@ -48,7 +48,6 @@ public class IdlingResourceActivityTest extends ActivityInstrumentationTestCase2
 
         @Override
         public void onCountdownFinished() {
-            super.onCountdownFinished();
             idlingResource.decrement();
         }
 
