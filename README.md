@@ -24,3 +24,10 @@ Next steps
 ---
 
  - Checkout the first branch: `git checkout 01_setup_and_basic_tests`
+
+
+Thanks
+---
+
+ - Thanks to Lim Chee Aun for his Hacker News Json API (https://github.com/cheeaun/node-hnapi)
+ 
