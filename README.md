@@ -1,6 +1,7 @@
 Android UI Testing with Espresso
 ===
 This is a demo app to use during the workshop called 'Android UI Testing with Espresso'.
+Slides can be found here: https://speakerdeck.com/xrigau/android-ui-testing-with-espresso
 
 Requirements
 ---
