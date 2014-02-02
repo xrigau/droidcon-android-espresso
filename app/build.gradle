@@ -1,9 +1,6 @@
 buildscript {
-    repositories {
-        mavenCentral()
-    }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.6.+'
+        classpath 'com.android.tools.build:gradle:0.8.+'
     }
 }
 
@@ -23,29 +20,20 @@ android {
 
         testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
 
-        buildConfig """
-          public static final retrofit.client.Client DEFAULT_HTTP_CLIENT = new retrofit.client.UrlConnectionClient();
-          public static final retrofit.client.Client MOCK_HTTP_CLIENT = new com.xrigau.droidcon.core.debug.MockClient();
-        """
+        buildConfigField "retrofit.client.Client", "HTTP_CLIENT", "new retrofit.client.UrlConnectionClient()"
     }
 
     deviceProvider new GenymotionDeviceProvider(project.plugins.findPlugin('android').getSdkParser())
     testBuildType "mockServer"
 
     buildTypes {
-        release {
-            buildConfig "public static final retrofit.client.Client HTTP_CLIENT = DEFAULT_HTTP_CLIENT;\n"
-        }
-        debug {
-            buildConfig "public static final retrofit.client.Client HTTP_CLIENT = DEFAULT_HTTP_CLIENT;\n"
-        }
         mockServer {
-            signingConfig signingConfigs.debug
             dependencies {
-                compile "com.google.android:android-espresso-bundled:1.0.0-SNAPSHOT"
+                instrumentTestCompile "com.google.android:android-espresso-bundled:1.1.0-SNAPSHOT"
             }
 
-            buildConfig "public static final retrofit.client.Client HTTP_CLIENT = MOCK_HTTP_CLIENT;\n"
+            signingConfig signingConfigs.debug
+            buildConfigField "retrofit.client.Client", "HTTP_CLIENT", "new com.xrigau.droidcon.core.debug.MockClient()"
         }
     }
 }
