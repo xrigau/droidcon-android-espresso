@@ -1,9 +1,6 @@
 buildscript {
-    repositories {
-        mavenCentral()
-    }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.6.+'
+        classpath 'com.android.tools.build:gradle:0.8.+'
     }
 }
 
@@ -22,5 +19,5 @@ android {
 }
 
 dependencies {
-    instrumentTestCompile "com.google.android:android-espresso-bundled:1.0.0-SNAPSHOT"
+    instrumentTestCompile "com.google.android:android-espresso-bundled:1.1.0-SNAPSHOT"
 }
