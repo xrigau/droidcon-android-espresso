@@ -41,10 +41,11 @@ public class DrawableMatcher extends TypeSafeMatcher<View> {
 
     private void loadDrawableFromResources(Context context) {
         try {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 expectedDrawable = context.getResources().getDrawable(resourceId);
-            else
+            } else {
                 expectedDrawable = context.getDrawable(resourceId);
+            }
             resourceName = context.getResources().getResourceEntryName(resourceId);
         } catch (Resources.NotFoundException ignored) {
             // view could be from a context unaware of the resource id.
