@@ -24,7 +24,7 @@ public class DrawableMatcher extends TypeSafeMatcher<View> {
     @Override
     public boolean matchesSafely(View target) {
         if (expectedDrawable == null) {
-            loadDrawableFromResources(target.getResources());
+            loadDrawableFromResources(target.getContext());
         }
         if (invalidExpectedDrawable()) {
             return false;
@@ -39,10 +39,13 @@ public class DrawableMatcher extends TypeSafeMatcher<View> {
         return hasBackground(target);
     }
 
-    private void loadDrawableFromResources(Resources resources) {
+    private void loadDrawableFromResources(Context context) {
         try {
-            expectedDrawable = resources.getDrawable(resourceId);
-            resourceName = resources.getResourceEntryName(resourceId);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+                expectedDrawable = context.getResources().getDrawable(resourceId);
+            else
+                expectedDrawable = context.getDrawable(resourceId);
+            resourceName = context.getResources().getResourceEntryName(resourceId);
         } catch (Resources.NotFoundException ignored) {
             // view could be from a context unaware of the resource id.
         }
